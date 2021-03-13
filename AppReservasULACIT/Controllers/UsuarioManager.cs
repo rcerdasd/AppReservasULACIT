@@ -22,7 +22,9 @@ namespace AppReservasULACIT.Controllers
             HttpClient httpClient = new HttpClient();
 
             var response = await httpClient.PostAsync(UrlAuthenticate,
-                new StringContent(JsonConvert.SerializeObject(loginRequest), Encoding.UTF8, "application/json"));
+                new StringContent(JsonConvert.SerializeObject(loginRequest), 
+                Encoding.UTF8, "application/json")
+                );
 
             return JsonConvert.DeserializeObject<Usuario>(await response.Content.ReadAsStringAsync());
         }
